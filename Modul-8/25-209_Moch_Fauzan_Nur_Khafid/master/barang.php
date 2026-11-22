@@ -21,14 +21,10 @@ if(isset($_POST['tambah'])){
     $stok     = (int) $_POST['stok'];
     $supplier = (int) $_POST['supplier_id'];
 
-    try {
-        mysqli_query($conn, "INSERT INTO barang (kode_barang, nama_barang, harga, stok, supplier_id)
-                             VALUES ('$kode', '$nama', $harga, $stok, $supplier)");
-        header("Location: barang.php");
-        exit;
-    } catch (Exception $e) {
-        $pesan = "Gagal menambah barang: supplier tidak ditemukan!";
-    }
+    mysqli_query($conn, "INSERT INTO barang (kode_barang, nama_barang, harga, stok, supplier_id)
+                            VALUES ('$kode', '$nama', $harga, $stok, $supplier)");
+    header("Location: barang.php");
+    exit;
 }
 
 if(isset($_POST['hapus'])){
